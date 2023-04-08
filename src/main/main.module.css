@@ -1,0 +1,16 @@
+.main {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    font-size: 1.6rem;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    padding: 20px;
+    background: rgb(79, 79, 79);
+    color: white;
+}

@@ -1,0 +1,18 @@
+.wrapper_post {
+  margin: 20px;
+}
+
+.wrapper_post span{
+    font-size: 2.0rem;
+}
+
+.new_post {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: auto;
+}
+
+.new_post textarea {
+  margin: 10px;
+}
