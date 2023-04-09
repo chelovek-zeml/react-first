@@ -16,7 +16,7 @@ function Main() {
         <div className={s.profile}>
           <Routes>
             <Route path="/profile" element={<Profile/>} />
-            <Route path="/messages" element={<Messages/>} />
+            <Route path="/messages/*" element={<Messages/>} />
             <Route path="/music" element={<Music/>} />
             <Route path="/news" element={<News/>} />
             <Route path="/settings" element={<Settings/>} />
