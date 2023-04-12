@@ -8,15 +8,15 @@ import Music from "./music/music";
 import Settings from "./settings/settings";
 import News from "./news/news";
 
-function Main() {
+function Main(props) {
   return (
     <BrowserRouter>
       <div className={s.main}>
         <Sidebar />
         <div className={s.profile}>
           <Routes>
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="/messages/*" element={<Messages/>} />
+            <Route path="/profile" element={<Profile posts={props.posts}/>} />
+            <Route path="/messages/*" element={<Messages dialogs={props.dialogs} messages={props.messages}/>} />
             <Route path="/music" element={<Music/>} />
             <Route path="/news" element={<News/>} />
             <Route path="/settings" element={<Settings/>} />

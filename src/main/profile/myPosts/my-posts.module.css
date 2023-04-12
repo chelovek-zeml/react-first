@@ -8,11 +8,15 @@
 
 .new_post {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   width: 300px;
   height: auto;
 }
 
 .new_post textarea {
+  margin: 10px;
+}
+
+.new_post button {
   margin: 10px;
 }

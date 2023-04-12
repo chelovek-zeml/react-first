@@ -1,18 +1,23 @@
 import s from "./my-posts.module.css";
 import Post from "./post/post";
 
-function MyPosts() {
+function MyPosts(props) {
+ 
+
+  let postsElement = props.posts.map( p => <Post message={p.message} countLike={p.likesCount} />)
+
   return (
     <div className={s.wrapper_post}>
       <span>My Posts</span>
       <div className={s.new_post}>
-        <textarea></textarea>
-        <button>Add post</button>
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>
+          <button>Add post</button>
+        </div>
       </div>
-      <Post message="Hi, how are you?" countLike="6"/>
-      <Post message="It's my first post" countLike="23"/>
-      <Post message="Cool" countLike="2"/>
-      <Post message="Thanks" countLike="56"/>
+     { postsElement }
     </div>
   );
 }

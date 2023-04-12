@@ -2,11 +2,11 @@ import './App.css';
 import Header from './header/header';
 import Main from './main/main';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
     <Header/>
-    <Main/>
+    <Main posts={props.posts} dialogs={props.dialogs} messages={props.messages}/>
     </div>
   );
 }

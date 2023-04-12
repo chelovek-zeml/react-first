@@ -4,36 +4,7 @@
     font-size: 2rem;
 }
 
-.dialog {
-    display: flex;
-    width: 20%;
-    flex-direction: column;
-    background-color: rgb(116, 116, 116);
-    font-size: 1.6rem;
-}
 
-.dialog__item {
-    margin: 10px;
-}
 
-.dialog__item a{
-    text-decoration: none;
-    color: white;
-}
 
-.dialog__item a.active {
-    color: gold;
-}
 
-.dialog__messages {
-    display: flex;
-    width: 77%;
-    flex-direction: column;
-    background-color: rgb(116, 116, 116);
-    font-size: 1.4rem;
-}
-
-.dialog__message {
-    margin: 5px 10px;
-    color: rgb(237, 243, 142);
-}
