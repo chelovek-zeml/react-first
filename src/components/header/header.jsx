@@ -1,5 +1,5 @@
 import s from "./header.module.css";
-import l from "../assets/logo-react-svgrepo-com.svg";
+import l from "../../assets/logo-react-svgrepo-com.svg";
 
 function Header() {
     return (

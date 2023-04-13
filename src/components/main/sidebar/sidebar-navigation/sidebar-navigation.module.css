@@ -1,0 +1,15 @@
+.title {
+    margin: 20px;
+    color: white;
+  }
+  
+  .title a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 2rem;
+  }
+  
+  .title a.active {
+    color: gold;
+  }

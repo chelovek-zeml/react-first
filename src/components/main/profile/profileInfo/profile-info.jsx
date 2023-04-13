@@ -1,5 +1,5 @@
 import s from "./profile-info.module.css";
-import foto from "../../../assets/wallpaperflare.com_wallpaper.jpg"
+import foto from "../../../../assets/wallpaperflare.com_wallpaper.jpg"
 
 const ProfileInfo = () => {
   return (

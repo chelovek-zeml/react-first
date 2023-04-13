@@ -1,15 +1,15 @@
 import s from "./post.module.css";
-import avatar from "../../../../assets/ui_user_profile_avatar_person_icon_208734.svg";
-import likeImg from "../../../../assets/like.svg";
+import avatar from "../../../../../assets/avatar_icon.svg";
+import likeImg from "../../../../../assets/like.svg";
 
 function Post(props) {
   return (
     <div className={s.post}>
       <div className={s.avatar}>
-        <img src={avatar}></img>
+        <img src={avatar} alt="img"></img>
       </div>
       <div className={s.like}>
-        <img src={likeImg}></img>
+        <img src={likeImg} alt="img"></img>
       </div>
       <div className={s.like_count}>{props.countLike}</div>
       {props.message}

@@ -5,8 +5,8 @@ import s from "./messages.module.css";
 const Messages = (props) => {
   return (
     <div className={s.dialogs}>
-        <Dialog dialogs={props.dialogs}/>
-        <Message messages={props.messages}/>
+        <Dialog dialogs={props.state.dialogs}/>
+        <Message messages={props.state.messages}/>
     </div>
   );
 };
