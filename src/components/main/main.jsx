@@ -15,7 +15,7 @@ function Main(props) {
         <Sidebar state={props.state}/>
         <div className={s.profile}>
           <Routes>
-            <Route path="/profile" element={<Profile state={props.state.profilePage}/>} />
+            <Route path="/profile" element={<Profile state={props.state.profilePage} addPost={props.addPost}/>} />
             <Route path="/messages/*" element={<Messages state={props.state.messagesPage} />} />
             <Route path="/music" element={<Music/>} />
             <Route path="/news" element={<News/>} />

@@ -1,10 +1,9 @@
 import s from "./friends.module.css";
-import avatar from "../../../../assets/avatar_icon.svg";
 
 const Friends = (props) => {
     let friendElement = props.friends.map(f => <div className={s.friend__item}>
         <div className={s.friend__avatar}>
-          <img src={avatar} alt="img"></img>
+          <img src={require(`../../../../assets${f.avatar}`)} alt="img"></img>
         </div>
         <div className={s.friend__name}>{f.name}</div>
       </div>)

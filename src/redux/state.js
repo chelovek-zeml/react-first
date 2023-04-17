@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   profilePage: {
     posts: [
@@ -5,21 +7,25 @@ let state = {
         id: 1,
         message: "Hi, how are you?",
         likesCount: 6,
+        avatar: "/avatar_icon.svg"
       },
       {
         id: 2,
         message: "It's my first post",
         likesCount: 23,
+        avatar: "/avatar_icon.svg"
       },
       {
         id: 3,
         message: "Cool",
         likesCount: 1,
+        avatar: "/avatar_icon.svg"
       },
       {
         id: 4,
         message: "Thanks",
         likesCount: 17,
+        avatar: "/avatar_icon.svg"
       },
     ],
   },
@@ -66,9 +72,9 @@ let state = {
   },
   sidebar: {
     friends: [
-      { id: 1, name: "Sasha", avatar: "../assets/avatar_icon.svg" },
-      { id: 2, name: "Sveta", avatar: "../assets/avatar_icon.svg" },
-      { id: 3, name: "Slava", avatar: "../assets/avatar_icon.svg" },
+      { id: 1, name: "Sasha", avatar: "/avatar_icon.svg" },
+      { id: 2, name: "Sveta", avatar: "/avatar_icon.svg" },
+      { id: 3, name: "Slava", avatar: "/avatar_icon.svg" },
     ],
     titles: [
       { id: 1, title: "Profile" },
@@ -79,5 +85,18 @@ let state = {
     ],
   },
 };
+
+export let addPost = (postNewMessage) => {
+  let newPost = {
+    id: 5,
+    message: postNewMessage,
+    likesCount: 0,
+    avatar: "/avatar_icon.svg",
+  };
+  state.profilePage.posts.push(newPost);
+  rerenderEntireTree(state);
+}
+
+
 
 export default state;
