@@ -20,8 +20,7 @@ function Main(props) {
               element={
                 <Profile
                   state={props.state.profilePage}
-                  addPost={props.addPost}
-                  updateNewPost={props.updateNewPost}
+                  dispatch={props.dispatch}
                 />
               }
             />

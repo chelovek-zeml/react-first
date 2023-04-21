@@ -8,8 +8,7 @@ function App(props) {
       <Header />
       <Main
         state={props.state}
-        addPost={props.addPost}
-        updateNewPost={props.updateNewPost}
+        dispatch={props.dispatch}
       />
     </div>
   );
