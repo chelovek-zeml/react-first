@@ -1,3 +1,8 @@
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
 .dialogs{
     display: flex;
     justify-content: space-between;

@@ -1,3 +1,8 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT"
+
 let store = {
   _callSubscraber() {},
   _state: {
@@ -70,6 +75,7 @@ let store = {
         { id: 2, message: "How are you?" },
         { id: 3, message: "Ok" },
       ],
+      newPostText: "",
     },
     sidebar: {
       friends: [
@@ -107,6 +113,17 @@ let store = {
     } else if (action.type === "UPDATE-NEW-POST-TEXT") {
       this._state.profilePage.newPostText = action.newPost;
       this._callSubscraber(this._state);
+    } else if (action.type === "ADD-MESSAGE") {
+      let newMessage = {
+        id: 5,
+        message: this._state.messagesPage.newPostText,
+      };
+      this._state.messagesPage.messages.push(newMessage);
+      this._state.messagesPage.newPostText = "";
+      this._callSubscraber(this._state);
+    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+      this._state.messagesPage.newPostText = action.newPost;
+      this._callSubscraber(this._state);
     }
   },
   // addPost() {
@@ -124,6 +141,32 @@ let store = {
   //   this._state.profilePage.newPostText = newPost;
   //   this._callSubscraber(this._state);
   // },
+};
+
+export const addPostActionCreater = () => {
+  return {
+    type: ADD_POST,
+  };
+};
+
+export const addMessageActionCreater = () => {
+  return {
+    type: ADD_MESSAGE,
+  };
+};
+
+export const updateNewPostTextActionCreater = (text) => {
+  return {
+    type: UPDATE_NEW_POST_TEXT,
+    newPost: text,
+  };
+};
+
+export const updateNewMessageTextActionCreater = (text) => {
+  return {
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    newPost: text,
+  };
 };
 
 export default store;

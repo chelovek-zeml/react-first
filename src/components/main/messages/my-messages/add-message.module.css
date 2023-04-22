@@ -1,0 +1,13 @@
+.wrapper_message {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.new_message {
+    margin: 5px;
+}
+
+.new_message button {
+    margin: 5px 0;
+}

@@ -26,7 +26,7 @@ function Main(props) {
             />
             <Route
               path="/messages/*"
-              element={<Messages state={props.state.messagesPage} />}
+              element={<Messages state={props.state.messagesPage} dispatch={props.dispatch}/>}
             />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
