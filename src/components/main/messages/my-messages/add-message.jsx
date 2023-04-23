@@ -1,5 +1,8 @@
 import React from "react";
-import { addMessageActionCreater, updateNewMessageTextActionCreater } from "../../../../redux/state";
+import {
+  addMessageActionCreater,
+  updateNewMessageTextActionCreater,
+} from "../../../../redux/message-reduce";
 import s from "./add-message.module.css";
 
 function AddMessage(props) {
@@ -12,7 +15,7 @@ function AddMessage(props) {
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
     props.dispatch(updateNewMessageTextActionCreater(text));
-  }
+  };
 
   return (
     <div className={s.wrapper_message}>
@@ -20,9 +23,9 @@ function AddMessage(props) {
       <div className={s.new_message}>
         <div>
           <textarea
-          onChange={onMessageChange}
-          ref={newMessageElement}
-          value={props.newPostText}
+            onChange={onMessageChange}
+            ref={newMessageElement}
+            value={props.newPostText}
           />
         </div>
         <div>
