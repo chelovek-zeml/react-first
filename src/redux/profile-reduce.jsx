@@ -1,7 +1,37 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-const profileReduce = (state, action) => {
+let initialState = {
+  posts: [
+    {
+      id: 1,
+      message: "Hi, how are you?",
+      likesCount: 6,
+      avatar: "/avatar_icon.svg",
+    },
+    {
+      id: 2,
+      message: "It's my first post",
+      likesCount: 23,
+      avatar: "/avatar_icon.svg",
+    },
+    {
+      id: 3,
+      message: "Cool",
+      likesCount: 1,
+      avatar: "/avatar_icon.svg",
+    },
+    {
+      id: 4,
+      message: "Thanks",
+      likesCount: 17,
+      avatar: "/avatar_icon.svg",
+    },
+  ],
+  newPostText: "",
+};
+
+const profileReduce = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       let newPost = {
@@ -23,16 +53,16 @@ const profileReduce = (state, action) => {
 };
 
 export const addPostActionCreater = () => {
-    return {
-      type: ADD_POST,
-    };
+  return {
+    type: ADD_POST,
   };
-  
-  export const updateNewPostTextActionCreater = (text) => {
-    return {
-      type: UPDATE_NEW_POST_TEXT,
-      newPost: text,
-    };
+};
+
+export const updateNewPostTextActionCreater = (text) => {
+  return {
+    type: UPDATE_NEW_POST_TEXT,
+    newPost: text,
   };
+};
 
 export default profileReduce;
