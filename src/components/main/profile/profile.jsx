@@ -1,15 +1,11 @@
-import MyPosts from "./myPosts/my-posts";
+import MyPostsContainer from "./myPosts/my-posts-container";
 import ProfileInfo from "./profileInfo/profile-info";
 
 function Profile(props) {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts
-        posts={props.state.posts}
-        newPostText={props.state.newPostText}
-        dispatch={props.dispatch}
-      />
+      <MyPostsContainer store={props.store} />
     </div>
   );
 }

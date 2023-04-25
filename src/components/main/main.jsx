@@ -15,18 +15,16 @@ function Main(props) {
         <Sidebar state={props.state} />
         <div className={s.profile}>
           <Routes>
+            <Route path="/profile" element={<Profile store={props.store} />} />
             <Route
-              path="/profile"
+              path="/messages/*"
               element={
-                <Profile
-                  state={props.state.profilePage}
+                <Messages
+                  store={props.store}
+                  state={props.state.messagesPage}
                   dispatch={props.dispatch}
                 />
               }
-            />
-            <Route
-              path="/messages/*"
-              element={<Messages state={props.state.messagesPage} dispatch={props.dispatch}/>}
             />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
