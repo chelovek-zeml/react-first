@@ -6,8 +6,8 @@ import Friends from "./sidebar-friends/friends";
 function Sidebar(props) {
   return (
     <div className={s.sidebar}>
-      <SidebarNav titles={props.state.sidebar.titles}/>
-      <Friends friends={props.state.sidebar.friends}/>
+      <SidebarNav store={props.store}/>
+      <Friends store={props.store}/>
     </div>
   );
 }

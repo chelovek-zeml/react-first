@@ -40,13 +40,16 @@ const profileReduce = (state = initialState, action) => {
         likesCount: 0,
         avatar: "/avatar_icon.svg",
       };
-      state.posts.push(newPost);
-      state.newPostText = "";
-      return state;
+      let stateCopy = {...state};
+      stateCopy.posts = [...state.posts];
+      stateCopy.posts.push(newPost);
+      stateCopy.newPostText = "";
+      return stateCopy;
 
     case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newPost;
-      return state;
+      let stateCopy2 = {...state};
+      stateCopy2.newPostText = action.newPost;
+      return stateCopy2;
     default:
       return state;
   }

@@ -12,20 +12,11 @@ function Main(props) {
   return (
     <BrowserRouter>
       <div className={s.main}>
-        <Sidebar state={props.state} />
+        <Sidebar store={props.store} />
         <div className={s.profile}>
           <Routes>
             <Route path="/profile" element={<Profile store={props.store} />} />
-            <Route
-              path="/messages/*"
-              element={
-                <Messages
-                  store={props.store}
-                  state={props.state.messagesPage}
-                  dispatch={props.dispatch}
-                />
-              }
-            />
+            <Route path="/messages/*" element={<Messages store={props.store} />} />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
             <Route path="/settings" element={<Settings />} />

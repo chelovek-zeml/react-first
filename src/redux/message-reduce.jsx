@@ -51,13 +51,16 @@ const messageReduce = (state = initialState, action) => {
         id: 5,
         message: state.newPostText,
       };
-      state.messages.push(newMessage);
-      state.newPostText = "";
-      return state;
+      let stateCopy = {...state};
+      stateCopy.messages = [...state.messages];
+      stateCopy.messages.push(newMessage);
+      stateCopy.newPostText = "";
+      return stateCopy;
 
     case UPDATE_NEW_MESSAGE_TEXT:
-      state.newPostText = action.newPost;
-      return state;
+      let stateCopy2 = {...state};
+      stateCopy2.newPostText = action.newPost;
+      return stateCopy2;
     default:
       return state;
   }
