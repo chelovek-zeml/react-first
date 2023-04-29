@@ -1,8 +1,7 @@
-
 import {
   addMessageActionCreater,
   updateNewMessageTextActionCreater,
-} from "../../../../redux/message-reduce";
+} from "../../../../redux/message-reducer";
 import AddMessage from "./add-message";
 import { connect } from "react-redux";
 
@@ -39,10 +38,13 @@ let mapDispatchToProps = (dispatch) => {
     },
     addMessage: () => {
       dispatch(addMessageActionCreater());
-    }
+    },
   };
 };
 
-const AddMessageContainer = connect(mapStateToProps, mapDispatchToProps)(AddMessage);
+const AddMessageContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddMessage);
 
 export default AddMessageContainer;

@@ -44,7 +44,7 @@ let initialState = {
   newPostText: "",
 };
 
-const messageReduce = (state = initialState, action) => {
+const messageReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
       let newMessage = {
@@ -79,4 +79,4 @@ export const updateNewMessageTextActionCreater = (text) => {
   };
 };
 
-export default messageReduce;
+export default messageReducer;

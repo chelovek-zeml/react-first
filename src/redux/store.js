@@ -1,6 +1,6 @@
-import messageReduce from "./message-reduce";
-import profileReduce from "./profile-reduce";
-import sidebar from "./sidebar-reduce";
+import messageReduce from "./message-reducer";
+import profileReduce from "./profile-reducer";
+import sidebar from "./sidebar-reducer";
 
 let store = {
   _callSubscraber() {},

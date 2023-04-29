@@ -1,14 +1,14 @@
-import messageReduce from "./message-reduce";
-import profileReduce from "./profile-reduce";
-import sidebarReduce from "./sidebar-reduce";
+import messageReducer from "./message-reducer";
+import profileReducer from "./profile-reducer";
+import sidebarReducer from "./sidebar-reducer";
 import {combineReducers, createStore} from "redux"
 
 
 let reducers = combineReducers(
     {
-        profilePage: profileReduce,
-        messagesPage: messageReduce,
-        sidebar: sidebarReduce,
+        profilePage: profileReducer,
+        messagesPage: messageReducer,
+        sidebar: sidebarReducer,
     }
 );
 
