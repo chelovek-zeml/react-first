@@ -7,6 +7,7 @@ import Messages from "./messages/messages";
 import Music from "./music/music";
 import Settings from "./settings/settings";
 import News from "./news/news";
+import UsersContainer from "./users/users-container";
 
 function Main(props) {
   return (
@@ -20,6 +21,7 @@ function Main(props) {
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/users" element={<UsersContainer />} />
           </Routes>
         </div>
       </div>

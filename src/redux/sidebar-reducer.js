@@ -11,6 +11,7 @@ let initialState = {
       { id: 3, title: "News" },
       { id: 4, title: "Music" },
       { id: 5, title: "Settings" },
+      { id: 6, title: "Users" },
     ],
   }
 
