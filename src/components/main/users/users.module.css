@@ -1,5 +1,46 @@
-.userPhoto {
+.users {
+  display: flex;
+  flex-direction: column;
+}
+
+.users_list {
+  display: flex;
+  width: 70%;
+  margin: 4px;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+.photo_follow {
     width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    margin: 10px;
+}
+
+.userPhoto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  width:300px;
+  margin-top: 8px;
+  margin-right: 8px;
+  color: rgb(179, 225, 253);
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    color: rgb(123, 237, 179);
+}
+
+.country {
+    margin: 3px;
+}
+
+.city {
+    margin: 3px;
 }

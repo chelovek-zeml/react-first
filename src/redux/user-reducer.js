@@ -4,38 +4,6 @@ const SET_USERS = "SET_USERS";
 
 let initialState = {
   users: [
-    {
-      id: 1,
-      foto: 'https://kartinkin.net/uploads/posts/2022-03/1647121567_1-kartinkin-net-p-kartinki-litso-devushki-1.png',
-      followed: false,
-      fullName: 'Alex',
-      status: "I am a man",
-      location: { country: "Belarus", city: "Minsk" },
-    },
-    {
-      id: 2,
-      foto: 'https://kartinkin.net/uploads/posts/2022-03/1647121567_1-kartinkin-net-p-kartinki-litso-devushki-1.png',
-      followed: false,
-      fullName: 'Sveta',
-      status: "I am a woman",
-      location: { country: "Ukraine", city: "Kiev" },
-    },
-    {
-      id: 3,
-      foto: 'https://kartinkin.net/uploads/posts/2022-03/1647121567_1-kartinkin-net-p-kartinki-litso-devushki-1.png',
-      followed: true,
-      fullName: 'Lena',
-      status: "I am a girl",
-      location: { country: "Russia", city: "Moscow" },
-    },
-    {
-      id: 4,
-      foto: 'https://kartinkin.net/uploads/posts/2022-03/1647121567_1-kartinkin-net-p-kartinki-litso-devushki-1.png',
-      followed: false,
-      fullName: 'Dima',
-      status: "I am a boy",
-      location: { country: "Italy", city: "Rome" },
-    },
   ],
 };
 
@@ -85,6 +53,7 @@ export const unfollowAC = (userId) => {
 export const setUsersAC = (users) => {
   return {
     type: SET_USERS,
+    users
   };
 };
 
