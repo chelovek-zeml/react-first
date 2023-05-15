@@ -10,7 +10,7 @@ import {
 import Users from "./users";
 import axios from "axios";
 import React from "react";
-import l from "../../../assets/my-loader.svg"
+import Preloader from "../../common/preloader/preloader";
 
 class UsersApi extends React.Component {
   componentDidMount() {
@@ -53,7 +53,7 @@ class UsersApi extends React.Component {
 
     return (
       <>
-      {this.props.isFetching ? <img src={l} alt="img"></img> : 
+      {this.props.isFetching ? <Preloader/> : 
       <Users
         pages={pages}
         currentPage={this.props.currentPage}
