@@ -8,7 +8,7 @@ const SelectedLink = () => {
   
   const Dialog = (props) => {
     let state = props.store.getState();
-    let dialogsElement = state.messagesPage.dialogs.map( d => <div className={s.dialog__item}>
+    let dialogsElement = state.messagesPage.dialogs.map( d => <div key={d.id} className={s.dialog__item}>
       <NavLink className={SelectedLink()} to={`/messages/${d.id}`}>
         {d.name}
       </NavLink>

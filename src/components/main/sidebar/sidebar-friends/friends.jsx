@@ -2,7 +2,7 @@ import s from "./friends.module.css";
 
 const Friends = (props) => {
   let state = props.store.getState();
-    let friendElement = state.sidebar.friends.map(f => <div className={s.friend__item}>
+    let friendElement = state.sidebar.friends.map(f => <div key={f.id} className={s.friend__item}>
         <div className={s.friend__avatar}>
           <img src={require(`../../../../assets${f.avatar}`)} alt="img"></img>
         </div>

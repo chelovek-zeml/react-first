@@ -8,7 +8,7 @@ const SelectedLink = () => {
 const SidebarNav = (props) => {
   let state = props.store.getState();
   let navElement =state.sidebar.titles.map((t) => (
-    <div className={s.title}>
+    <div key={t.id} className={s.title}>
       <NavLink to={`/${t.title.toLowerCase()}`} className={SelectedLink()}>
         {t.title}
       </NavLink>

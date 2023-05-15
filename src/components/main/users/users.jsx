@@ -6,8 +6,8 @@ const Users = (props) => {
     <div className={s.users}>
       <div className={s.pagination}>
         {props.pages.map((p) => (
-          <span
-            className={props.currentPage === p && s.selectedPage}
+          <span key={p}
+            className={props.currentPage === p ? s.selectedPage : s.page}
             onClick={(e) => {
               props.onPageChanged(p);
             }}
