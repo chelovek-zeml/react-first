@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import {
-  followAC,
-  setCurrentPageAC,
-  setTotalUsersCountAC,
-  setUsersAC,
-  toggleIsFetchingAC,
-  unfollowAC,
+  follow,
+  setCurrentPage,
+  setTotalUsersCount,
+  setUsers,
+  toggleIsFetching,
+  unfollow,
 } from "../../../redux/user-reducer";
 import Users from "./users";
 import axios from "axios";
@@ -77,32 +77,58 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId));
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber));
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setTotalUsersCountAC(totalCount));
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingAC(isFetching));
-    },
-  };
-};
+// let mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followAC(userId));
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unfollowAC(userId));
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersAC(users));
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber));
+//     },
+//     setTotalUsersCount: (totalCount) => {
+//       dispatch(setTotalUsersCountAC(totalCount));
+//     },
+//     toggleIsFetching: (isFetching) => {
+//       dispatch(toggleIsFetchingAC(isFetching));
+//     },
+//   };
+// };
+
+// const AddMessageContainer = connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(UsersApi)
+
+
+
+// const AddMessageContainer = connect(
+//   mapStateToProps,
+//   {
+//     follow: followAC,
+//     unfollow: unfollowAC,
+//     setUsers: setUsersAC,
+//     setCurrentPage: setCurrentPageAC,
+//     setTotalUsersCount: setTotalUsersCountAC,
+//     toggleIsFetching: toggleIsFetchingAC,
+//   }
+// )(UsersApi);
 
 const AddMessageContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching,
+  }
 )(UsersApi);
 
 export default AddMessageContainer;
