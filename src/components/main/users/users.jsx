@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import s from "./users.module.css";
 import React from "react";
 
@@ -6,7 +7,8 @@ const Users = (props) => {
     <div className={s.users}>
       <div className={s.pagination}>
         {props.pages.map((p) => (
-          <span key={p}
+          <span
+            key={p}
             className={props.currentPage === p ? s.selectedPage : s.page}
             onClick={(e) => {
               props.onPageChanged(p);
@@ -20,15 +22,17 @@ const Users = (props) => {
         <div key={u.id} className={s.users_list}>
           <div className={s.photo_follow}>
             <div>
-              <img
-                src={
-                  u.photos.small != null
-                    ? u.photos.small
-                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxmR-s58w1t6-jN3NWjUtodePj_U0yM1dLyOpQNvbLJItfDOn3kKMEJK0OoYBp7-ajeA&usqp=CAU"
-                }
-                className={s.userPhoto}
-                alt="img"
-              />
+              <NavLink to={'/profile/' + u.id}>
+                <img
+                  src={
+                    u.photos.small != null
+                      ? u.photos.small
+                      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxmR-s58w1t6-jN3NWjUtodePj_U0yM1dLyOpQNvbLJItfDOn3kKMEJK0OoYBp7-ajeA&usqp=CAU"
+                  }
+                  className={s.userPhoto}
+                  alt="img"
+                />
+              </NavLink>
             </div>
             <div>
               {u.followed ? (
