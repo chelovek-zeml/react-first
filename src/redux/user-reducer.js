@@ -88,7 +88,7 @@ export const setCurrentPage = (currentPage) => {
 export const setTotalUsersCount = (totalCount) => {
   return {
     type: SET_TOTAL_USERS_COUNT,
-    count: Math.ceil(totalCount / 1000),
+    count: Math.ceil(totalCount / 100),
   };
 };
 

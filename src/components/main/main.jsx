@@ -16,7 +16,7 @@ function Main(props) {
         <Sidebar store={props.store} />
         <div className={s.profile}>
           <Routes>
-            <Route path="/profile/*" element={<ProfileContainer store={props.store} />} />
+            <Route path="/profile/:userId?" element={<ProfileContainer store={props.store} />} />
             <Route path="/messages/*" element={<Messages store={props.store} />} />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
