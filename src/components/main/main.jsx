@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {Route, Routes } from "react-router-dom";
 import s from "./main.module.css";
 import Sidebar from "./sidebar/sidebar";
 import Messages from "./messages/messages";
@@ -11,7 +11,7 @@ import ProfileContainer from "./profile/profile-container";
 
 function Main(props) {
   return (
-    <BrowserRouter>
+    
       <div className={s.main}>
         <Sidebar store={props.store} />
         <div className={s.profile}>
@@ -25,7 +25,7 @@ function Main(props) {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    
   );
 }
 
