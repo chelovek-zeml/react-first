@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import s from "./users.module.css";
 import React from "react";
-import axios from "axios";
 import { getFollow, getUnfollow } from "../../../api/api";
 
 const Users = (props) => {
@@ -24,7 +23,7 @@ const Users = (props) => {
         <div key={u.id} className={s.users_list}>
           <div className={s.photo_follow}>
             <div>
-              <NavLink to={'/profile/' + u.id}>
+              <NavLink to={"/profile/" + u.id}>
                 <img
                   src={
                     u.photos.small != null
@@ -37,22 +36,39 @@ const Users = (props) => {
               </NavLink>
             </div>
             <div>
-              {u.followed 
-              ? ( <button onClick={() => {  getUnfollow(u.id)
-                .then((data) => {
-                 if (data.resultCode == 0 ) {
-                  props.unfollow(u.id);
-                 }
-                }); }} > UnFollow </button> ) 
-              : ( <button onClick={() => { 
-                getFollow(u.id)
-                .then((data) => {
-                 if (data.resultCode == 0 ) {
-                  props.follow(u.id);
-                 }
-                });
-                 }} > Follow </button> )
-              }
+              {u.followed ? (
+                <button
+                disabled={props.followingInProgress.some(id => id === u.id)}
+                  onClick={() => {
+                    props.toggleFollowingProgress(true, u.id);
+                    getUnfollow(u.id).then((data) => {
+                      if (data.resultCode === 0) {
+                        props.unfollow(u.id);
+                      }
+                      props.toggleFollowingProgress(false, u.id);
+                    });
+                  }}
+                >
+                  {" "}
+                  UnFollow{" "}
+                </button>
+              ) : (
+                <button
+                disabled={props.followingInProgress.some(id => id === u.id)}
+                  onClick={() => {
+                    props.toggleFollowingProgress(true, u.id);
+                    getFollow(u.id).then((data) => {
+                      if (data.resultCode === 0) {
+                        props.follow(u.id);
+                      }
+                      props.toggleFollowingProgress(false, u.id);
+                    });
+                  }}
+                >
+                  {" "}
+                  Follow{" "}
+                </button>
+              )}
             </div>
           </div>
           <div className={s.info}>

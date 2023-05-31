@@ -6,6 +6,7 @@ import {
   setUsers,
   toggleIsFetching,
   unfollow,
+  toggleFollowingProgress
 } from "../../../redux/user-reducer";
 import Users from "./users";
 import React from "react";
@@ -54,6 +55,8 @@ class UsersApi extends React.Component {
         users={this.props.users}
         unfollow={this.props.unfollow}
         follow={this.props.follow}
+        toggleFollowingProgress={this.props.toggleFollowingProgress}
+        followingInProgress={this.props.followingInProgress}
       />}
       </>
     );
@@ -67,6 +70,7 @@ let mapStateToProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress,
   };
 };
 
@@ -121,6 +125,7 @@ const AddMessageContainer = connect(
     setCurrentPage,
     setTotalUsersCount,
     toggleIsFetching,
+    toggleFollowingProgress,
   }
 )(UsersApi);
 
