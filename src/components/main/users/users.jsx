@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import s from "./users.module.css";
 import React from "react";
+import axios from "axios";
+import { getFollow, getUnfollow } from "../../../api/api";
 
 const Users = (props) => {
   return (
@@ -35,23 +37,22 @@ const Users = (props) => {
               </NavLink>
             </div>
             <div>
-              {u.followed ? (
-                <button
-                  onClick={() => {
-                    props.unfollow(u.id);
-                  }}
-                >
-                  UnFollow
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    props.follow(u.id);
-                  }}
-                >
-                  Follow
-                </button>
-              )}
+              {u.followed 
+              ? ( <button onClick={() => {  getUnfollow(u.id)
+                .then((data) => {
+                 if (data.resultCode == 0 ) {
+                  props.unfollow(u.id);
+                 }
+                }); }} > UnFollow </button> ) 
+              : ( <button onClick={() => { 
+                getFollow(u.id)
+                .then((data) => {
+                 if (data.resultCode == 0 ) {
+                  props.follow(u.id);
+                 }
+                });
+                 }} > Follow </button> )
+              }
             </div>
           </div>
           <div className={s.info}>

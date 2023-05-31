@@ -9,7 +9,7 @@ import News from "./news/news";
 import UsersContainer from "./users/users-container";
 import ProfileContainer from "./profile/profile-container";
 
-function Main(props) {
+function Main(props) { 
   return (
     
       <div className={s.main}>
