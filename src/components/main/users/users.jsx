@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import s from "./users.module.css";
 import React from "react";
-import { getFollow, getUnfollow } from "../../../api/api";
 
 const Users = (props) => {
   return (
@@ -40,13 +39,7 @@ const Users = (props) => {
                 <button
                 disabled={props.followingInProgress.some(id => id === u.id)}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-                    getUnfollow(u.id).then((data) => {
-                      if (data.resultCode === 0) {
-                        props.unfollow(u.id);
-                      }
-                      props.toggleFollowingProgress(false, u.id);
-                    });
+                    props.getUnfollowingThunkCreater(u.id);
                   }}
                 >
                   {" "}
@@ -56,13 +49,7 @@ const Users = (props) => {
                 <button
                 disabled={props.followingInProgress.some(id => id === u.id)}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-                    getFollow(u.id).then((data) => {
-                      if (data.resultCode === 0) {
-                        props.follow(u.id);
-                      }
-                      props.toggleFollowingProgress(false, u.id);
-                    });
+                    props.getFollowingThunkCreater(u.id);
                   }}
                 >
                   {" "}
