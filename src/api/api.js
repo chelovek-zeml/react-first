@@ -29,4 +29,9 @@ export const usersAPI = {
       return response.data;
     });
   },
+  getLogin() {
+    return instance.get(`auth/me`).then((response) => {
+      return response.data;
+    });
+  },
 };
