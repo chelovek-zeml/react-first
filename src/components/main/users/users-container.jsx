@@ -11,6 +11,8 @@ import {
 import Users from "./users";
 import React from "react";
 import Preloader from "../../common/preloader/preloader";
+import { compose } from "redux";
+import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 
 class UsersApi extends React.Component {
   componentDidMount() {
@@ -107,7 +109,18 @@ let mapStateToProps = (state) => {
 //   }
 // )(UsersApi);
 
-export default connect(mapStateToProps, {
+// export default connect(mapStateToProps, {
+//   follow,
+//   unfollow,
+//   setCurrentPage,
+//   toggleFollowingProgress,
+//   getUsersThunkCreater,
+//   getFollowingThunkCreater,
+//   getUnfollowingThunkCreater,
+// })(UsersApi);
+
+
+export default compose(connect(mapStateToProps, {
   follow,
   unfollow,
   setCurrentPage,
@@ -115,4 +128,5 @@ export default connect(mapStateToProps, {
   getUsersThunkCreater,
   getFollowingThunkCreater,
   getUnfollowingThunkCreater,
-})(UsersApi);
+}),
+withAuthRedirect)(UsersApi)

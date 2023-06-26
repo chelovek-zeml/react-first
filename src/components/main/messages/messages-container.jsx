@@ -1,10 +1,7 @@
 
 import Messages from "./messages";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
+import { compose } from "redux";
 
 
-let AuthRedirectComponent = withAuthRedirect(Messages);
-
-
-
-export default AuthRedirectComponent
+export default compose(withAuthRedirect)(Messages)
