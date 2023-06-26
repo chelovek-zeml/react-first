@@ -1,3 +1,4 @@
+import { compose } from "redux";
 import {
   addNewPost,
   updateNewPostText,
@@ -40,9 +41,14 @@ let mapStateToProps = (state) => {
 //   };
 // };
 
-const MyPostsContainer = connect(mapStateToProps, {
-  updateNewPostText,
-  addNewPost,
-})(MyPosts);
+// const MyPostsContainer = connect(mapStateToProps, {
+//   updateNewPostText,
+//   addNewPost,
+// })(MyPosts);
 
-export default MyPostsContainer;
+// export default MyPostsContainer;
+
+export default compose(connect(mapStateToProps, {
+     updateNewPostText,
+     addNewPost,
+   }))(MyPosts);

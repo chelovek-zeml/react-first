@@ -1,3 +1,4 @@
+import { compose } from "redux";
 import {
   addMessage,
   changeMessage,
@@ -42,12 +43,20 @@ let mapStateToProps = (state) => {
 //   };
 // };
 
-const AddMessageContainer = connect(
+// const AddMessageContainer = connect(
+//   mapStateToProps,
+//   {
+//     changeMessage,
+//     addMessage,
+//   }
+// )(AddMessage);
+
+// export default AddMessageContainer;
+
+export default compose(connect(
   mapStateToProps,
   {
     changeMessage,
     addMessage,
   }
-)(AddMessage);
-
-export default AddMessageContainer;
+))(AddMessage);

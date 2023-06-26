@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Message from "./message";
+import { compose } from "redux";
 
 // const MessageContainer = (props) => {
 //     let state = props.store.getState();
@@ -13,6 +14,8 @@ import Message from "./message";
     };
   };
 
-  const MessageContainer = connect(mapStateToProps)(Message);
+  // const MessageContainer = connect(mapStateToProps)(Message);
 
-  export default MessageContainer
+  // export default MessageContainer;
+
+  export default compose(connect(mapStateToProps))(Message);
