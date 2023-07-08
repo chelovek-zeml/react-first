@@ -5,6 +5,7 @@ import {applyMiddleware, combineReducers, createStore} from "redux"
 import userReducer from "./user-reducer";
 import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
+import { reducer as formReducer } from "redux-form";
 
 
 
@@ -15,6 +16,7 @@ let reducers = combineReducers(
         sidebar: sidebarReducer,
         usersPage: userReducer,
         auth: authReducer,
+        form: formReducer,
     }
 );
 
