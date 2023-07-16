@@ -1,0 +1,16 @@
+
+
+.form_control.error textarea,
+.form_control.error input
+ {
+  border: 2px solid red;
+}
+
+.form_control.error span {
+    
+   
+    -webkit-text-stroke: 0.3px red;
+   
+}
+
+
