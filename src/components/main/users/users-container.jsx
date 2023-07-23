@@ -12,7 +12,6 @@ import Users from "./users";
 import React from "react";
 import Preloader from "../../common/preloader/preloader";
 import { compose } from "redux";
-import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 
 class UsersApi extends React.Component {
   componentDidMount() {
@@ -69,55 +68,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-// let mapDispatchToProps = (dispatch) => {
-//   return {
-//     follow: (userId) => {
-//       dispatch(followAC(userId));
-//     },
-//     unfollow: (userId) => {
-//       dispatch(unfollowAC(userId));
-//     },
-//     setUsers: (users) => {
-//       dispatch(setUsersAC(users));
-//     },
-//     setCurrentPage: (pageNumber) => {
-//       dispatch(setCurrentPageAC(pageNumber));
-//     },
-//     setTotalUsersCount: (totalCount) => {
-//       dispatch(setTotalUsersCountAC(totalCount));
-//     },
-//     toggleIsFetching: (isFetching) => {
-//       dispatch(toggleIsFetchingAC(isFetching));
-//     },
-//   };
-// };
-
-// const AddMessageContainer = connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(UsersApi)
-
-// const AddMessageContainer = connect(
-//   mapStateToProps,
-//   {
-//     follow: followAC,
-//     unfollow: unfollowAC,
-//     setUsers: setUsersAC,
-//     setCurrentPage: setCurrentPageAC,
-//     setTotalUsersCount: setTotalUsersCountAC,
-//     toggleIsFetching: toggleIsFetchingAC,
-//   }
-// )(UsersApi);
-
-// export default connect(mapStateToProps, {
-//   follow,
-//   unfollow,
-//   setCurrentPage,
-//   toggleFollowingProgress,
-//   getUsersThunkCreater,
-//   getFollowingThunkCreater,
-//   getUnfollowingThunkCreater,
-// })(UsersApi);
 
 
 export default compose(connect(mapStateToProps, {
@@ -129,4 +79,4 @@ export default compose(connect(mapStateToProps, {
   getFollowingThunkCreater,
   getUnfollowingThunkCreater,
 }),
-withAuthRedirect)(UsersApi)
+)(UsersApi)
