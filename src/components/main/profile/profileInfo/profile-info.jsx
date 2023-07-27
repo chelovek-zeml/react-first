@@ -1,7 +1,7 @@
 import s from "./profile-info.module.css";
 import foto from "../../../../assets/wallpaperflare.com_wallpaper.jpg";
 import Preloader from "../../../common/preloader/preloader";
-import ProfileStatus from "./profile-status";
+import ProfileStatusWithHooks from "./profile-status-use-hooks";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -12,7 +12,7 @@ const ProfileInfo = (props) => {
       <div className={s.img_montane}>
         <img src={foto} alt="img"></img>
       </div>
-      <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+      <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
       <div className={s.profile}>
         <div className={s.avatar}>
           <img src={props.profile.photos.large} alt="img" />
