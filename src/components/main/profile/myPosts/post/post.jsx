@@ -1,7 +1,8 @@
 import s from "./post.module.css";
 import likeImg from "../../../../../assets/like.svg";
+import React from "react";
 
-function Post(props) {
+const Post = React.memo(props => {
   return (
     <div className={s.post}>
       <div className={s.avatar}>
@@ -14,6 +15,6 @@ function Post(props) {
       {props.message}
     </div>
   );
-}
+});
 
 export default Post;
