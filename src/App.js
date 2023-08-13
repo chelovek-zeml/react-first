@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { withRouter } from "./components/main/profile/profile-container";
 import { initializeApp } from "./redux/app-reducer";
-import Preloader from "./components/common/preloader/preloader";
+import Preloader from "./components/common/Preloader/Preloader";
 
 class App extends Component {
 

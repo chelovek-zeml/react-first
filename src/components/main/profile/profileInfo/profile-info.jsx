@@ -1,6 +1,6 @@
 import s from "./profile-info.module.css";
 import foto from "../../../../assets/wallpaperflare.com_wallpaper.jpg";
-import Preloader from "../../../common/preloader/preloader";
+import Preloader from "../../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./profile-status-use-hooks";
 
 const ProfileInfo = (props) => {

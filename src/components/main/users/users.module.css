@@ -3,19 +3,6 @@
   flex-direction: column;
 }
 
-.pagination {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 8px;
-  gap: 12px;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.selectedPage {
-  color: rgb(251, 231, 5);
-}
-
 .users_list {
   display: flex;
   width: 70%;
