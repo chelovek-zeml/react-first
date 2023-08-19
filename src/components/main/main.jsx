@@ -6,9 +6,11 @@ import Music from "./music/music";
 import Settings from "./settings/settings";
 import News from "./news/news";
 import UsersContainer from "./users/users-container";
-import ProfileContainer from "./profile/profile-container";
+// import ProfileContainer from "./profile/profile-container";
 import Login from "../login/login";
-import MessagesContainer from "./messages/messages-container";
+// import MessagesContainer from "./messages/messages-container";
+const ProfileContainer = React.lazy(() => import("./profile/profile-container"));
+const MessagesContainer = React.lazy(() => import("./messages/messages-container"));
 
 function Main(props) { 
   return (
@@ -16,8 +18,9 @@ function Main(props) {
       <div className={s.main}>
         <Sidebar store={props.store} />
         <div className={s.profile}>
+          <React.Suspense fallback={<div>load...</div>}>
           <Routes>
-            <Route path="/profile/:userId?" element={<ProfileContainer store={props.store} />} />
+            <Route path="/profile/:userId?" element={<ProfileContainer />} />
             <Route path="/messages/*" element={<MessagesContainer store={props.store} />} />
             <Route path="/music" element={<Music />} />
             <Route path="/news" element={<News />} />
@@ -25,6 +28,7 @@ function Main(props) {
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/login" element={<Login />} />
           </Routes>
+          </React.Suspense>
         </div>
       </div>
     
