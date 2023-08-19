@@ -10,7 +10,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = "it/user/TOGGLE_IS_FOLLOWING_PROGRESS";
 
 let initialState = {
   users: [],
-  pageSize: 4,
+  pageSize: 10,
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
@@ -95,7 +95,7 @@ export const setCurrentPage = (currentPage) => {
 export const setTotalUsersCount = (totalCount) => {
   return {
     type: SET_TOTAL_USERS_COUNT,
-    count: Math.ceil(totalCount / 100),
+    count: Math.ceil(totalCount / 1),
   };
 };
 export const toggleIsFetching = (isFetching) => {

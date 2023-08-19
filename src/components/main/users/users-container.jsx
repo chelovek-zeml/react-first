@@ -12,7 +12,14 @@ import Users from "./users";
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import { compose } from "redux";
-import { getFollowingInProgress, getIsFetching, getPageSize, getUsers, getcurrentPage, gettotalUsersCount } from "../../../redux/users-selectors";
+import {
+  getFollowingInProgress,
+  getIsFetching,
+  getPageSize,
+  getUsers,
+  getcurrentPage,
+  gettotalUsersCount,
+} from "../../../redux/users-selectors";
 
 class UsersApi extends React.Component {
   componentDidMount() {
@@ -41,6 +48,7 @@ class UsersApi extends React.Component {
           <Preloader />
         ) : (
           <Users
+            pagesCount={pagesCount}
             pages={pages}
             currentPage={this.props.currentPage}
             onPageChanged={this.onPageChanged}
@@ -58,8 +66,6 @@ class UsersApi extends React.Component {
   }
 }
 
-
-
 let mapStateToProps = (state) => {
   return {
     users: getUsers(state),
@@ -71,15 +77,14 @@ let mapStateToProps = (state) => {
   };
 };
 
-
-
-export default compose(connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setCurrentPage,
-  toggleFollowingProgress,
-  getUsersThunkCreater,
-  getFollowingThunkCreater,
-  getUnfollowingThunkCreater,
-}),
-)(UsersApi)
+export default compose(
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setCurrentPage,
+    toggleFollowingProgress,
+    getUsersThunkCreater,
+    getFollowingThunkCreater,
+    getUnfollowingThunkCreater,
+  })
+)(UsersApi);
