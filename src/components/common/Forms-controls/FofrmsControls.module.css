@@ -7,7 +7,9 @@
 }
 
 .form_control.error span { 
-    -webkit-text-stroke: 0.3px red;
+  font-size: 2rem;
+  color: rgb(249, 172, 172);
+    -webkit-text-stroke: 0.2px red;
 }
 
 .form_error {
