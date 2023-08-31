@@ -1,6 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import { Input } from "../common/Forms-controls/FormsControls";
+import { Input, createField } from "../common/Forms-controls/FormsControls";
 import { required } from "../../utils/validators/validator";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
@@ -8,37 +8,48 @@ import { Navigate } from "react-router-dom";
 import s from "./../common/Forms-controls/FofrmsControls.module.css";
 
 const Login = (props) => {
+  const onSubmit = (formData) => {
+    props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
+  };
 
-    const onSubmit = (formData) => {
-props.login(formData.email, formData.password, formData.rememberMe, );
-    }
-
-    if (props.isAuth) {
-      return <Navigate to={"/profile"} />
-    }
+  if (props.isAuth) {
+    return <Navigate to={"/profile"} />;
+  }
   return (
     <div>
       <h1>LOGIN</h1>
-      <LoginReduxForm onSubmit={onSubmit}/>
+      <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
   );
 };
 
 const LoginForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit} >
+    <form onSubmit={props.handleSubmit}>
       <div>
-        <Field placeholder="email" validate={[required]} name={"email"} component={Input}/>
+        <Field
+          placeholder="email"
+          validate={[required]}
+          name={"email"}
+          component={Input}
+        />
       </div>
       <div>
-        <Field placeholder="password" validate={[required]} type={"password"} name={"password"} component={Input} />
+        <Field
+          placeholder="password"
+          validate={[required]}
+          type={"password"}
+          name={"password"}
+          component={Input}
+        />
       </div>
       <div>
-        <Field type={"checkbox"} name={"rememberMe"} component={Input} /> remember me
+        <Field type={"checkbox"} name={"rememberMe"} component={Input} />{" "}
+        remember me
       </div>
-     { props.error && <div className={s.form_error}>
-        {props.error}
-      </div>}
+      {props.captchaUrl && <img src={props.captchaUrl} alt="img" />}
+      {props.captchaUrl && createField("Symbol from image", "captcha", [required], Input, {})}
+      {props.error && <div className={s.form_error}>{props.error}</div>}
       <div>
         <button>Login</button>
       </div>
@@ -51,7 +62,8 @@ const LoginReduxForm = reduxForm({
 })(LoginForm);
 
 const mapStateToProps = (state) => ({
-isAuth: state.auth.isAuth
-})
+  captchaUrl: state.auth.captchaUrl,
+  isAuth: state.auth.isAuth,
+});
 
-export default connect(mapStateToProps, {login})(Login);
+export default connect(mapStateToProps, { login })(Login);

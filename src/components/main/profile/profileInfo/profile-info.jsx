@@ -64,7 +64,7 @@ const ProfileInfo = (props) => {
 const Contact = ({ contactTitle, contactValue }) => {
   return (
     <div className={s.contact}>
-      <b>{contactTitle}</b>: {contactValue}
+      <b>{contactTitle}:</b> {contactValue}
     </div>
   );
 };
@@ -90,7 +90,7 @@ const ProfileData = ({ goToEditMode, props }) => {
           {props.profile.lookingForAJobDescription}
         </div>
         <div className={s.description}>
-          About me:
+          <b>About me:</b>
           <div className={s.profile_text}>{props.profile.aboutMe}</div>
         </div>
       </div>
