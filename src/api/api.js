@@ -7,80 +7,67 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
-  getUsers(currentPage = 1, pageSize = 10) {
-    return instance
-      .get(`users?page=${currentPage}&count=${pageSize}`)
-      .then((response) => {
-        return response.data;
-      });
+  async getUsers(currentPage = 1, pageSize = 10) {
+    const response = await instance
+      .get(`users?page=${currentPage}&count=${pageSize}`);
+    return response.data;
   },
-  getProfile(userId) {
-    console.warn("Obsolete method. Please use profileApi object");
-    return profileAPI.getProfile(userId);
+  async getFollow(id) {
+    const response = await instance.post(`follow/${id}`);
+    return response.data;
   },
-  getFollow(id) {
-    return instance.post(`follow/${id}`).then((response) => {
-      return response.data;
-    });
-  },
-  getUnfollow(id) {
-    return instance.delete(`follow/${id}`).then((response) => {
-      return response.data;
-    });
+  async getUnfollow(id) {
+    const response = await instance.delete(`follow/${id}`);
+    return response.data;
   },
 
 };
 
 export const profileAPI = {
-  getProfile(userId) {
-    return instance.get(`profile/${userId}`).then((response) => {
-      return response.data;
-    });
+  async getProfile(userId) {
+    const response = await instance.get(`profile/${userId}`);
+    return response.data;
   },
-  getStatus(userId) {
-    return instance.get('profile/status/' + userId).then((response) => {
-      return response.data;
-    });
+  async getStatus(userId) {
+    const response = await instance.get('profile/status/' + userId);
+    return response.data;
   }, 
-  updateStatus(status) {
-    return instance.put('profile/status', {status: status}).then((response) => {
-      return response.data;
-    });
+  async updateStatus(status) {
+    try {
+    const response = await instance.put('profile/status', { status: status });
+    return response.data;
+    } catch(error) {
+      alert(error)
+    }
   },
-  savePhoto(photoFile) {
+  async savePhoto(photoFile) {
     const formData = new FormData();
     formData.append("image", photoFile);
-    return instance.put('profile/photo', formData, {
+    const response = await instance.put('profile/photo', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
-    })
-    .then((response) => {
-      return response.data;
     });
+    return response.data;
   },
-  saveProfile(profile) {
-    return instance.put('profile', profile).then((response) => {
-      return response.data;
-    });
+  async saveProfile(profile) {
+    const response = await instance.put('profile', profile);
+    return response.data;
   }
 };
 
 export const authAPI = {
-  getLogin() {
-    return instance.get(`auth/me`).then((response) => {
-      return response.data;
-    });
+  async getLogin() {
+    const response = await instance.get(`auth/me`);
+    return response.data;
   },
-  login(email, password, rememberMe = false, captcha = null) {
-    return instance.post(`auth/login`, {email, password, rememberMe, captcha}).then((response) => {
-      return response.data;
-    });
+  async login(email, password, rememberMe = false, captcha = null) {
+    const response = await instance.post(`auth/login`, { email, password, rememberMe, captcha });
+    return response.data;
   },
-  logout() {
-    return instance.delete(`auth/login`).then((response) => {
-      return response.data;
-    });
+  async logout() {
+    const response = await instance.delete(`auth/login`);
+    return response.data;
   },
 }
 

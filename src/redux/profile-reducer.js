@@ -1,5 +1,5 @@
 import { stopSubmit } from "redux-form";
-import { profileAPI, usersAPI } from "../api/api";
+import { profileAPI } from "../api/api";
 
 const ADD_POST = "it/profile/ADD-POST";
 const SET_USER_PROFILE = "it/profile/SET-USER-PROFILE";
@@ -95,7 +95,7 @@ export const savePhotoSuccess = (photos) => {
 export const deletePost = (postId) => ({ type: DELETE_POST, postId });
 
 export const getUsersProfileThunkCreater = (id) => async (dispatch) => {
-  const data = await usersAPI.getProfile(id);
+  const data = await profileAPI.getProfile(id);
   dispatch(setUsersProfile(data));
 };
 
